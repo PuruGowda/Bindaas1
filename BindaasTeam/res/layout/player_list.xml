@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@color/blue">
+
+    <TextView
+        android:id="@+id/playerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:text="" 
+        android:textColor="@color/gray"/>
+
+    <TextView
+        android:id="@+id/playerRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/playerName"
+       	android:layout_centerHorizontal="true"
+        android:text="" 
+        android:textColor="@color/gray"/>
+
+    <TextView
+        android:id="@+id/playerGold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/playerRole"
+       	android:textColor="@color/gray"
+       	 android:layout_alignParentRight="true"
+        
+        android:text="" />
+
+</RelativeLayout>

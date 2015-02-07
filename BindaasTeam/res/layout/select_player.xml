@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical" >
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/teamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingLeft="20dp"
+            android:text=""
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/leagueName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/teamName"
+             android:layout_centerHorizontal="true"
+            android:text=""
+            android:textColor="@color/gray" />
+
+        <TextView
+            android:id="@+id/pGold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@id/leagueName"
+            android:layout_alignBottom="@id/leagueName"
+            android:layout_alignParentRight="true" 
+            android:paddingRight="20dp"
+            android:text=""
+            android:textColor="@color/gray" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        style="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="455dp"
+        android:layout_weight="0.39" >
+    </ListView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="2dp" >
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            android:background="@color/green"
+            android:text="@string/next"
+            android:visibility="gone"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

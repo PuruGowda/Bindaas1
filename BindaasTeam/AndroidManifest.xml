@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wattabyte.bindaasteam"
+    android:versionCode="2"
+    android:versionName="1.2" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="21" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application
+        android:name=".BindaasApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SignUp" >
+        </activity>
+        <activity android:name=".navigationdrawer.NavigationDrawerActivity" >
+        </activity>
+        <activity
+            android:name=".contacts.ContactsActivity"
+            android:label="@string/app_contact_name" >
+        </activity>
+        <activity android:name=".teammanagement.SelectLeague" >
+        </activity>
+        <activity android:name=".teammanagement.SelectPlayers" >
+        </activity>
+        <activity android:name=".teammanagement.TeamName" >
+        </activity>
+        <activity android:name=".teammanagement.Players" >
+        </activity>
+        <activity android:name=".friends.AvailableUser" >
+        </activity>
+        <activity android:name="com.wattabyte.bindaasteam.notification.ReplyActivity" >
+        </activity>
+         <activity android:name="com.wattabyte.bindaasteam.notification.GroupReplyActivity" >
+        </activity>
+        <activity android:name="com.wattabyte.bindaasteam.friends.RequestActivity" >
+        </activity>
+        <activity android:name=".groupmanagement.FriendsListActivity" >
+        </activity>
+        <activity android:name=".groupmanagement.GroupManagementActivity" >
+        </activity>
+        <activity android:name=".groupmanagement.GroupNameActivity" >
+        </activity>
+        <activity android:name=".groupmanagement.LeagueSelectActivity" >
+        </activity>
+        <activity android:name=".groupmanagement.FriendsRequestActivity" >
+        </activity>
+        <activity
+            android:name=".groupmanagement.GroupFinalActivity"
+            android:label="@string/title_activity_group_final" >
+        </activity>
+        <activity
+            android:name="com.wattabyte.bindaasteam.teammanagement.TeamListViewActivity"
+            android:label="@string/title_activity_team_list_view" >
+        </activity>
+    </application>
+
+</manifest>
