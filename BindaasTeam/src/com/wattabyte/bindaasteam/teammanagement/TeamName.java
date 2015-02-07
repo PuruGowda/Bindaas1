@@ -1,6 +1,7 @@
 package com.wattabyte.bindaasteam.teammanagement;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,29 +10,37 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.wattabyte.bindaasteam.R;
+import com.wattabyte.bindaasteam.groupmanagement.GroupNameActivity;
 import com.wattabyte.bindaasteam.util.BindaasUtil;
 
 public class TeamName extends ActionBarActivity {
 	
+	public static final String NAMES = "Names";
+	public static final String NAME = "Name";
 	EditText editText;
 	Button button;
 	BindaasUtil Bu;	
-	static String tName;
-   public final	static ArrayList<String> tN  = new ArrayList<String>(); 
+//	static String tName;
+//   public final	static ArrayList<String> tN  = new ArrayList<String>(); 
 	private static final String LOG = "MSG";
 	
 	
-	public TeamName()
-	{
-		
-	}
-	
-	public TeamName(String tname)
-	{
-		tN.add(tname);
-	}
+//	public TeamName()
+//	{
+//		
+//	}
+//	
+//	public TeamName(String tname)
+//	{
+//		tN.add(tname);
+//	}
 	
 	
 	@Override
@@ -45,13 +54,61 @@ public class TeamName extends ActionBarActivity {
 		button.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+					
+					ParseQuery<ParseObject> query = ParseQuery.getQuery(NAMES);
+					query.whereExists(NAME);
+					final ArrayList<String> nameArray = new ArrayList<String>();
+					query.findInBackground(new FindCallback<ParseObject>() {
+						
+						@Override
+						public void done(List<ParseObject> names, ParseException e) {
+							if (e == null) {
+								Toast.makeText(TeamName.this,""+names.size() , Toast.LENGTH_LONG).show();
+								for (ParseObject name : names) {
+									nameArray.add(name.getString(NAME));
+								}
+								Log.d("MSG", nameArray.toString());
+								String teamName = editText.getText().toString();
+								if (teamName!=null && !teamName.equals("")) {
+									
+									boolean flag = false ;
+									for (String string : nameArray) {
+										if (teamName.equals(string)) {
+											Toast.makeText(TeamName.this,"Equal", Toast.LENGTH_SHORT).show();
+											flag = false;
+											break;
+										} else {
+											Toast.makeText(TeamName.this,"Not Equal", Toast.LENGTH_SHORT).show();
+											flag = true;
+										}
+									}
+									if(flag){
+										
+										Intent i = new Intent(TeamName.this,SelectLeague.class);
+										i.putExtra("text", editText.getText().toString());
+//										new TeamName(editText.getText().toString());
+										ParseObject name = new ParseObject(""+NAMES);
+										name.put(NAME,teamName);
+										name.saveInBackground();
+										Log.i(LOG, "Starting Activity");
+//										Log.i(LOG, tN.toString());
+										startActivity(i);
+										Toast.makeText(TeamName.this,""+flag , Toast.LENGTH_SHORT).show();
+									}else{
+										Toast.makeText(TeamName.this,""+flag , Toast.LENGTH_SHORT).show();
+										Toast.makeText(TeamName.this,"Change The Team Name Team Name Already Exist" , Toast.LENGTH_SHORT).show();
+									}	
+									
+								}
+								 else {
+										Toast.makeText(TeamName.this, "Please Enter the Empty Fields", Toast.LENGTH_SHORT).show();
+									}
+							} else {
+								Toast.makeText(TeamName.this,"Not Retrieved" , Toast.LENGTH_LONG).show();
+							}
+						}
+					});
 				
-					Intent i = new Intent(TeamName.this,SelectLeague.class);
-					i.putExtra("text", editText.getText().toString());
-					new TeamName(editText.getText().toString());
-					Log.i(LOG, "Starting Activity");
-					Log.i(LOG, tN.toString());
-					startActivity(i);
 				
 			}
 		});
