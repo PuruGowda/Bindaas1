@@ -55,7 +55,7 @@ public class MainActivity extends ActionBarActivity {
 				if (name != null && !name.equals("") && pwd != null
 						&& !pwd.equals("")) {
 
-					ParseUser.logInInBackground(name, pwd, new LogInCallback() {
+					ParseUser.logInInBackground(name.trim(), pwd.trim(), new LogInCallback() {
 						public void done(ParseUser user, ParseException e) {
 							if (user != null) {
 								Intent in = new Intent(MainActivity.this,

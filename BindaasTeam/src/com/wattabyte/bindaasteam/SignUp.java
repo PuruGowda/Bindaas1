@@ -46,9 +46,9 @@ public class SignUp extends ActionBarActivity {
 				if(un != null  && !un.equals("") && pwd != null  && !pwd.equals("") && mail != null  && !mail.equals("")){
 					
 					ParseUser user = new ParseUser();
-					user.setUsername(un);
-					user.setPassword(pwd);
-					user.setEmail(mail);
+					user.setUsername(un.trim());
+					user.setPassword(pwd.trim());
+					user.setEmail(mail.trim());
 					user.saveInBackground();
 					user.signUpInBackground(new SignUpCallback() {
 						  public void done(ParseException e) {
