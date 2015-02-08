@@ -31,7 +31,7 @@ import com.wattabyte.bindaasteam.util.BindaasUtil;
 public class SelectPlayers extends ActionBarActivity {
 
 	String league;
-	TextView teamName, playerGold, playerno, leagueName;
+	TextView teamName, playerGold, playerno, leagueName, points;
 	Button next;
 	ListView playerListView;
 //	TextView goldCount;
@@ -40,6 +40,7 @@ public class SelectPlayers extends ActionBarActivity {
 	public static final String NAME = "Name";
 	public static final String ROLE = "Role";
 	public static final String GOLD = "Gold";
+	public static final String POINTS = "Points";
 	
 	public static final String TEAM_NAME = "name";
 	public static final String LEAGUE = "league";
@@ -70,6 +71,7 @@ public class SelectPlayers extends ActionBarActivity {
 		teamName = (TextView) findViewById(R.id.teamName);
 		leagueName= (TextView) findViewById(R.id.leagueName);
 		playerGold = (TextView) findViewById(R.id.pGold);
+		points = 
 		next = (Button) findViewById(R.id.next);
 		
 //		to get team name and league name from previous activity
@@ -114,6 +116,7 @@ public class SelectPlayers extends ActionBarActivity {
 //							Log.i("MSG", player.getString(ROLE));
 							map.put(GOLD, player.getString(GOLD));
 //							Log.i("MSG", player.getString(GOLD));
+							map.put(POINTS, player.getString(POINTS));
 							playerRows.add(map);
 						} else {
 							Log.d("MSG", "Error: " + e.getMessage());
@@ -152,6 +155,7 @@ public class SelectPlayers extends ActionBarActivity {
 										teamCreation.put(NAME, ""+item.get(NAME));
 										teamCreation.put(ROLE, ""+item.get(ROLE));
 										teamCreation.put(GOLD, ""+item.get(GOLD));
+										teamCreation.put(POINTS,""+item.get(POINTS));
 										teamCreation.saveInBackground();
 									} else {
 										Log.i("MSG", "Sorry you have " + gCount
