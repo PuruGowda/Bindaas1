@@ -25,36 +25,37 @@ public class SignUp extends ActionBarActivity {
 	String un , pwd , mail;
 	private static final String LOG = "MSG";
 	boolean emailVerified;
-	boolean checked = false;
 	final Context context = this;
 	TextView tv;
 	CheckBox cb;
+	boolean checked = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signup);
-		 tv = (TextView) findViewById(R.id.terms);
-		 cb = (CheckBox) findViewById(R.id.check);
+		 
 		userName = (EditText) findViewById(R.id.userName);
 		password = (EditText) findViewById(R.id.password);
 		email = (EditText) findViewById(R.id.email);
+		tv = (TextView) findViewById(R.id.terms);
+		 cb = (CheckBox) findViewById(R.id.check);
+		 
 		 tv.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(SignUp.this,TermsAndConditions.class);
-				startActivity(i);
-			}
-		});
+				
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(SignUp.this,TermsAndConditions.class);
+					startActivity(i);
+				}
+			});
 		 
 		signup = (Button) findViewById(R.id.signup);
 		signup.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
 				if(checked)
 				{
 				un = userName.getText().toString();
@@ -131,7 +132,8 @@ public class SignUp extends ActionBarActivity {
 					AlertDialog alertDialog = alert.create();
 					alertDialog.show();
 				}
-			}
+				}		
+				
 				else
 				{
 					AlertDialog.Builder alert = new AlertDialog.Builder(context);
@@ -154,13 +156,13 @@ public class SignUp extends ActionBarActivity {
 			}
 		});
 	}
-	
+
 	public void itemClicked(View v) {
         //code to check if this checkbox is checked!
         CheckBox checkBox = (CheckBox)v;
         if(checkBox.isChecked()){
         	checked = true;
         }
-    }
-
+        
+}
 }

@@ -2,7 +2,6 @@ package com.wattabyte.bindaasteam.teammanagement;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 
 import android.content.Intent;
@@ -51,7 +50,7 @@ public class SelectPlayers extends ActionBarActivity {
 	public static final String TEAM_LEAGUE_NAME = "LeagueName";
 	public static final String TEAM_GROUP_NAME = "GroupName";
 	
-	HashSet<String> set = new HashSet<String>();
+	
 	ArrayList<HashMap<String, String>> playerRows;
 	ArrayList<String> list = new ArrayList<String>();
 	ListAdapter adapter;
@@ -91,7 +90,6 @@ public class SelectPlayers extends ActionBarActivity {
 		Log.d("MSG", "after setting the listview");
 		
 //		Retrieve list player from parse table with the league  name
-		
 		ParseQuery<ParseObject> query = ParseQuery.getQuery(""+lName);
 		Log.d("Msg", "Setting up to get the player in the league name");
 		
@@ -141,11 +139,7 @@ public class SelectPlayers extends ActionBarActivity {
 								String gold = ((TextView) view
 										.findViewById(R.id.playerGold)).getText()
 										.toString();
-								String pName = ((TextView) view.findViewById(R.id.playerName)).getText().toString();
 								Log.d("MSG", "Obtaining GOld");
-								
-								if(set.add(pName))
-								{
 								int i = Integer.parseInt(gold);
 								if (count <= 2 && (gCount - i) > 0) {
 									count++;
@@ -154,7 +148,6 @@ public class SelectPlayers extends ActionBarActivity {
 
 									if (gCount > 0) {
 										
-										view.setBackgroundColor(getResources().getColor(R.color.green));
 										Log.i("MSG", "Remaining gold is  "
 												+ gCount);
 										playerGold.setText(String.valueOf(gCount));
@@ -177,12 +170,7 @@ public class SelectPlayers extends ActionBarActivity {
 									next.setVisibility(View.VISIBLE);
 									
 								}
-								}
-								else
-								{
-									Toast.makeText(SelectPlayers.this,"Sorry player already selected", Toast.LENGTH_SHORT).show();
-									Log.i("MSG", "Player already selected");
-								}
+								
 							}
 						});
 						
@@ -195,8 +183,6 @@ public class SelectPlayers extends ActionBarActivity {
 				
 			}
 		});
-		
-		
 		
 		next.setOnClickListener(new OnClickListener() {
 			

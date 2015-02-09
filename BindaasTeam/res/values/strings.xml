@@ -67,9 +67,16 @@
     <string name="searchFriendBtn">search</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
-    <string name="terms">1.Terms of Use:</string>
+
+    <!-- This is a for Banner unit app id -->
+    <string name="ad_id">  ca-app-pub-2555724076385576/9206303246</string>
+    <string name="title_activity_mail">MailActivity</string>
+ 	<string name="remember">Remember Me</string>   
+    <!-- For Email Activity -->
     
-    
+    <string name="subject">Subject:</string>
+     <string name="send">Send</string>
+     
     <!-- Terms and Codition titles -->
     <string name="cTitle1">1.Terms of Use: </string>
     <string name="cTitle2">2.REGISTRATION:  </string>
@@ -215,15 +222,5 @@
 	    disputes arising out of or relating to the use of this Bindaas Team Application. Use of this 
 	    Bindaas Team Application is unauthorized in any jurisdiction that does not give effect to all 
 	    provisions of these terms and conditions, including without limitation this paragraph.</string>
-
-    <!-- This is a for Banner unit app id -->
-    <string name="ad_id">  ca-app-pub-2555724076385576/9206303246</string>
-    <string name="title_activity_mail">MailActivity</string>
-    
-    <!-- For Email Activity -->
-    
-    <string name="subject">Subject:</string>
-     <string name="send">Send</string>
-    
 
 </resources>

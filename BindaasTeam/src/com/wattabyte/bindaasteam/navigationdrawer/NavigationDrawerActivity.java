@@ -1,5 +1,8 @@
 package com.wattabyte.bindaasteam.navigationdrawer;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -20,46 +23,105 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.wattabyte.bindaasteam.MainActivity;
 import com.wattabyte.bindaasteam.R;
 
 public class NavigationDrawerActivity extends ActionBarActivity implements
-OnItemClickListener{
+		OnItemClickListener {
 
 	public static NavigationDrawerActivity instance;
 	public static String fragmentName = "ProfileFragment()";
 
-	public static NavigationDrawerActivity getInstance(){
+	public static NavigationDrawerActivity getInstance() {
 		return instance;
 	}
 
 	private DrawerLayout drawerLayout;
 
-
-
 	private ListView listView1;
 
-
+	public static final String NAME = "Name";
+	public static final String NAMES = "Names";
 	private ActionBarDrawerToggle drawerListener;
 
-
-	private String[] titles ;
+	private String[] titles;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		Fragment fragment = new ProfileFragment();
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.mainContent, fragment).commit();
+		fragmentManager.beginTransaction().replace(R.id.mainContent, fragment)
+				.commit();
 
-		
+		ParseQuery<ParseObject> query = ParseQuery.getQuery(NAMES);
+		query.whereExists(NAME);
+		query.setLimit(2000);
+		query.findInBackground(new FindCallback<ParseObject>() {
 
-		
+			@Override
+			public void done(List<ParseObject> names, ParseException e) {
+				if (e == null) {
+					ParseUser currentUser = ParseUser.getCurrentUser();
+					String userName = currentUser.getUsername();
+					String teamName = "Team" + userName;
+					String groupName = "Group" + userName;
+					boolean flag = false;
+					for (ParseObject name : names) {
+
+						if (userName.equals(name.getString(NAME))) {
+							flag = false;
+						} else {
+							flag = true;
+						}
+					}
+					if (flag) {
+						ParseObject name = new ParseObject(NAMES);
+						name.put(NAME, "" + userName);
+						name.saveInBackground();
+					}
+					for (ParseObject name : names) {
+
+						if (teamName.equals(name.getString(NAME))) {
+							flag = false;
+						} else {
+							flag = true;
+						}
+					}
+					if (flag) {
+						ParseObject team = new ParseObject(NAMES);
+						team.put(NAME, "" + teamName);
+						team.saveInBackground();
+					}
+					for (ParseObject name : names) {
+
+						if (groupName.equals(name.getString(NAME))) {
+							flag = false;
+						} else {
+							flag = true;
+						}
+					}
+					if (flag) {
+						ParseObject group = new ParseObject(NAMES);
+						group.put(NAME, "" + groupName);
+						group.saveInBackground();
+					}
+				} else {
+
+				}
+
+			}
+		});
+
 		instance = this;
 		setContentView(R.layout.activity_navigation);
-		
+
 		try {
 			AdView mAdView = (AdView) findViewById(R.id.adView);
 			AdRequest adRequest = new AdRequest.Builder().build();
@@ -77,8 +139,8 @@ OnItemClickListener{
 			@Override
 			public void onDrawerClosed(View drawerView) {
 
-				Toast.makeText(NavigationDrawerActivity.this, "on drawer close",
-						Toast.LENGTH_SHORT).show();
+				Toast.makeText(NavigationDrawerActivity.this,
+						"on drawer close", Toast.LENGTH_SHORT).show();
 			}
 
 			@Override
@@ -120,21 +182,22 @@ OnItemClickListener{
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 
-		int id  = item.getItemId();
-		if(drawerListener.onOptionsItemSelected(item)){
+		int id = item.getItemId();
+		if (drawerListener.onOptionsItemSelected(item)) {
 			return true;
-		}
-		else if (id == R.id.action_logout) {
+		} else if (id == R.id.action_logout) {
 			ParseUser currentUser = ParseUser.getCurrentUser();
 			if (currentUser != null) {
 				ParseUser.logOut();
-				Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_NEW_TASK);
+				Intent intent = new Intent(getApplicationContext(),
+						MainActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+						| Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(intent);
 			}
 			return true;
 		}
-		
+
 		return super.onOptionsItemSelected(item);
 
 	}
@@ -152,8 +215,8 @@ OnItemClickListener{
 	}
 
 	public void selectItem(int position) {
-		Fragment fragment = null ;
-		switch (position){
+		Fragment fragment = null;
+		switch (position) {
 		case 0:
 			fragment = new ProfileFragment();
 			break;
@@ -182,7 +245,8 @@ OnItemClickListener{
 		// update the main content by replacing fragments
 		if (fragment != null) {
 			FragmentManager fragmentManager = getSupportFragmentManager();
-			fragmentManager.beginTransaction().replace(R.id.mainContent, fragment).commit();
+			fragmentManager.beginTransaction()
+					.replace(R.id.mainContent, fragment).commit();
 
 			// update selected item and title, then close the drawer
 			listView1.setItemChecked(position, true);
@@ -196,9 +260,5 @@ OnItemClickListener{
 
 		getSupportActionBar().setTitle(title);
 	}
-
-	
-	
-
 
 }

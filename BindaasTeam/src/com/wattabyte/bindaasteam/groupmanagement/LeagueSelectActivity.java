@@ -22,9 +22,12 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.wattabyte.bindaasteam.R;
+import com.wattabyte.bindaasteam.util.Message;
 
 public class LeagueSelectActivity extends ActionBarActivity {
 	
+	
+	public static final String LEAGUES = "Leagues";
 	public static final String LEAGUE_NAME = "Name";
 	public static final String PLAYERNAME = "PlayerName";
 	public static final String GROUPCREATOR = "GroupCreator";
@@ -46,8 +49,8 @@ public class LeagueSelectActivity extends ActionBarActivity {
 		i = getIntent();
 		grpName = i.getStringExtra(GroupNameActivity.GROUP_NAME);
 		groupName.setText(grpName);
-		
-		ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Leagues");
+	
+		ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(LEAGUES);
 		query.whereExists(LEAGUE_NAME);
 		leagueArray = new ArrayList<String>();
 		
