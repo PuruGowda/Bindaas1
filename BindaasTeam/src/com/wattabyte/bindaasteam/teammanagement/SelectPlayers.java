@@ -94,6 +94,7 @@ public class SelectPlayers extends ActionBarActivity {
 		Log.d("Msg", "Setting up to get the player in the league name");
 		
 		query.whereExists(NAME);
+		query.setLimit(2000);
 		
 		query.findInBackground(new FindCallback<ParseObject>() {
 //			Adding 

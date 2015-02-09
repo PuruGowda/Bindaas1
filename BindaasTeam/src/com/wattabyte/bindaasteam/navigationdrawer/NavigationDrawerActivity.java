@@ -1,5 +1,6 @@
 package com.wattabyte.bindaasteam.navigationdrawer;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
+import android.view.InflateException;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +18,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.parse.ParseUser;
+import com.wattabyte.bindaasteam.MainActivity;
 import com.wattabyte.bindaasteam.R;
 
 public class NavigationDrawerActivity extends ActionBarActivity implements
@@ -49,9 +55,19 @@ OnItemClickListener{
 		fragmentManager.beginTransaction().replace(R.id.mainContent, fragment).commit();
 
 		
+
 		
 		instance = this;
 		setContentView(R.layout.activity_navigation);
+		
+		try {
+			AdView mAdView = (AdView) findViewById(R.id.adView);
+			AdRequest adRequest = new AdRequest.Builder().build();
+			mAdView.loadAd(adRequest);
+		} catch (InflateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		titles = getResources().getStringArray(R.array.menu);
 		drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -94,7 +110,7 @@ OnItemClickListener{
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.fblogout, menu);
+		getMenuInflater().inflate(R.menu.logout, menu);
 		return true;
 	}
 
@@ -104,10 +120,20 @@ OnItemClickListener{
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 
+		int id  = item.getItemId();
 		if(drawerListener.onOptionsItemSelected(item)){
 			return true;
 		}
-
+		else if (id == R.id.action_logout) {
+			ParseUser currentUser = ParseUser.getCurrentUser();
+			if (currentUser != null) {
+				ParseUser.logOut();
+				Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |  Intent.FLAG_ACTIVITY_NEW_TASK);
+				startActivity(intent);
+			}
+			return true;
+		}
 		
 		return super.onOptionsItemSelected(item);
 

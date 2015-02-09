@@ -1,5 +1,8 @@
 package com.wattabyte.bindaasteam.notification;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -10,14 +13,22 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.ParseAnalytics;
+import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.wattabyte.bindaasteam.R;
+import com.wattabyte.bindaasteam.teammanagement.TeamName;
 
 public class ReplyActivity extends ActionBarActivity {
 	
+	public static final String REQUEST = "Request";
+	public static final String FRIEND_ID = "FriendId";
+	public static final String FRIEND_NAME = "FriendName";
 	public static final String REQUESTNAME = "requestName";
 	public static final String REQUESTMESSAGE = "requestMessage";
 	public static final String REQUESTNAMEID = "requestNameId";
@@ -60,20 +71,61 @@ public class ReplyActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				Log.i("MSG", "Onclick accept");
-				ParseObject freindAccept = new ParseObject(""+rUserName);
-				freindAccept.put("FriendName", ""+requestName);
-				freindAccept.put("FriendId", ""+requestNameId);
-				freindAccept.saveInBackground();
-				ParseObject freindRequest = new ParseObject(""+requestName);
-				freindRequest.put("FriendName", ""+rUserName);
-				freindRequest.put("FriendId", ""+rUserId);
-				freindRequest.saveInBackground();
-				// for accepting and deleting the request
-				ParseObject myObj = new ParseObject("Request");
-				myObj.createWithoutData("Request", oId).deleteEventually();
-				Log.i("MSG", "Successfully deleted the request");
+				ParseQuery<ParseObject> query = ParseQuery.getQuery(""+rUserName);
+				query.whereExists(FRIEND_NAME);
+				final ArrayList<String> friendArray = new ArrayList<String>();
+				query.findInBackground(new FindCallback<ParseObject>() {
+					
+					@Override
+					public void done(List<ParseObject> friends, ParseException e) {
+						if (e == null) {
+							for (ParseObject friend : friends) {
+								friendArray.add(friend.getString(FRIEND_NAME));
+							}
+								boolean flag = false;
+								for (String string : friendArray) {
+									if (requestName.equals(string)) {
+										Toast.makeText(ReplyActivity.this,
+												"Equal", Toast.LENGTH_SHORT)
+												.show();
+										flag = false;
+										break;
+									} else {
+										Toast.makeText(ReplyActivity.this,
+												"Not Equal",
+												Toast.LENGTH_SHORT).show();
+										flag = true;
+									}
+								
+							if(flag){
+							ParseObject freindAccept = new ParseObject(""+rUserName);
+							freindAccept.put(FRIEND_NAME, ""+requestName);
+							freindAccept.put(FRIEND_ID, ""+requestNameId);
+							freindAccept.saveInBackground();
+							ParseObject freindRequest = new ParseObject(""+requestName);
+							freindRequest.put(FRIEND_NAME, ""+rUserName);
+							freindRequest.put(FRIEND_ID, ""+rUserId);
+							freindRequest.saveInBackground();
+							// for accepting and deleting the request
+							ParseObject myObj = new ParseObject(REQUEST);
+							myObj.createWithoutData(REQUEST, oId).deleteEventually();
+							Log.i("MSG", "Successfully deleted the request");
+							}
+							else{
+								// for accepting and deleting the request
+								ParseObject myObj = new ParseObject(REQUEST);
+								myObj.createWithoutData(REQUEST, oId).deleteEventually();
+								Log.i("MSG", "Successfully deleted the request");
+							}
+						}	
+						}else {
+
+						}
+					}
+				});
 				
-			}
+				}	
+			
 		});
 		ParseAnalytics.trackAppOpened(getIntent());
 		
@@ -83,7 +135,7 @@ public class ReplyActivity extends ActionBarActivity {
 			public void onClick(View v) {
 				//for rejecting and deleting the request
 				Log.i("MSG", "On click Reject");
-				ParseObject.createWithoutData("Request", oId).deleteEventually();
+				ParseObject.createWithoutData(REQUEST, oId).deleteEventually();
 				Log.i("MSG", "Successfully deleted the request");
 				
 			}

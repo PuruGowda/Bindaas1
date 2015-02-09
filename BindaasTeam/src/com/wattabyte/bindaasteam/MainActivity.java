@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -41,6 +44,15 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 		userName = (EditText) findViewById(R.id.userName);
 		password = (EditText) findViewById(R.id.password);
+		
+		try {
+			AdView mAdView = (AdView) findViewById(R.id.adView);
+			AdRequest adRequest = new AdRequest.Builder().build();
+			mAdView.loadAd(adRequest);
+		} catch (InflateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		login = (Button) findViewById(R.id.login);
 		signup = (Button) findViewById(R.id.signup);
@@ -155,6 +167,14 @@ public class MainActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onBackPressed() {
+	    Intent startMain = new Intent(Intent.ACTION_MAIN);      
+	        startMain.addCategory(Intent.CATEGORY_HOME);                        
+	        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);          
+	        startActivity(startMain); 
+	  }
 
 	
 
