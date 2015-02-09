@@ -11,6 +11,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.InflateException;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,12 +20,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.wattabyte.bindaasteam.R;
 import com.wattabyte.bindaasteam.navigationdrawer.NavigationDrawerActivity;
 
 public class MainActivity extends ActionBarActivity {
@@ -41,7 +45,7 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 
 		if(isOnline()){
-			   // Start your AsyncTask
+			   // Start your Task
 			
 			setContentView(R.layout.activity_main);
 			userName = (EditText) findViewById(R.id.userName);
@@ -83,6 +87,56 @@ public class MainActivity extends ActionBarActivity {
 											{
 												Log.i("MSG", ""+e);
 											}
+
+		setContentView(R.layout.activity_main);
+		userName = (EditText) findViewById(R.id.userName);
+		password = (EditText) findViewById(R.id.password);
+		
+		try {
+			AdView mAdView = (AdView) findViewById(R.id.adView);
+			AdRequest adRequest = new AdRequest.Builder().build();
+			mAdView.loadAd(adRequest);
+		} catch (InflateException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		login = (Button) findViewById(R.id.login);
+		signup = (Button) findViewById(R.id.signup);
+
+		login.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+
+				name = userName.getText().toString();
+				pwd = password.getText().toString();
+				if (name != null && !name.equals("") && pwd != null
+						&& !pwd.equals("")) {
+
+					ParseUser.logInInBackground(name.trim(), pwd.trim(), new LogInCallback() {
+						public void done(ParseUser user, ParseException e) {
+							if (user != null) {
+								Intent in = new Intent(MainActivity.this,
+										NavigationDrawerActivity.class);
+								startActivity(in);
+							} else {
+								// Signup failed. Look at the ParseException to
+								// see what happened.
+								ParseQuery<ParseObject> query = ParseQuery.getQuery("User");
+								query.whereEqualTo("username", name);
+								query.findInBackground(new FindCallback<ParseObject>() {
+									
+									@Override
+									public void done(List<ParseObject> name, ParseException e) {
+										if(e == null)
+										{
+											flag = true;
+										}
+										else
+										{
+											Log.i("MSG", ""+e);
+
 										}
 									});
 									if(flag == false)
@@ -188,6 +242,14 @@ public class MainActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onBackPressed() {
+	    Intent startMain = new Intent(Intent.ACTION_MAIN);      
+	        startMain.addCategory(Intent.CATEGORY_HOME);                        
+	        startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);          
+	        startActivity(startMain); 
+	  }
 
 	
 

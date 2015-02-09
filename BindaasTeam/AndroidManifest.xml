@@ -13,11 +13,17 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <application
-        android:name="BindaasApplication"
+        android:name=".BindaasApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- This meta-data tag is required to use Google Play Services. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -47,11 +53,11 @@
         </activity>
         <activity android:name=".friends.AvailableUser" >
         </activity>
-        <activity android:name="com.wattabyte.bindaasteam.notification.ReplyActivity" >
+        <activity android:name=".notification.ReplyActivity" >
         </activity>
-         <activity android:name="com.wattabyte.bindaasteam.notification.GroupReplyActivity" >
+        <activity android:name=".notification.GroupReplyActivity" >
         </activity>
-        <activity android:name="com.wattabyte.bindaasteam.friends.RequestActivity" >
+        <activity android:name=".friends.RequestActivity" >
         </activity>
         <activity android:name=".groupmanagement.FriendsListActivity" >
         </activity>
@@ -68,9 +74,13 @@
             android:label="@string/title_activity_group_final" >
         </activity>
         <activity
-            android:name="com.wattabyte.bindaasteam.teammanagement.TeamListViewActivity"
+            android:name=".teammanagement.TeamListViewActivity"
             android:label="@string/title_activity_team_list_view" >
         </activity>
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
+
     </application>
 
 </manifest>

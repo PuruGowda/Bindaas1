@@ -4,6 +4,9 @@
     <string name="app_name">BindaasTeam</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="invite_mail">Invite Mail</string>
+    <string name="invite_message">Invite Message</string>
+    <string name="logout">Logout</string>
     <string name="action_logout">Logout</string>
     <string name="action_friends">Add</string>
     <string name="app_contact_name">Bindaas Contacts</string>
@@ -36,10 +39,9 @@
     <string name="title_activity_league_select">LeagueSelectActivity</string>
     <string name="title_activity_friends_list">FriendsListActivity</string>
     <string name="leagueName">LeagueName</string>
-    
 
     <color name="red">#FF0000</color>
-  <!--  <color name="blue">#0000FF</color>   -->
+    <!-- <color name="blue">#0000FF</color> -->
 
     <string-array name="menu">
         <item>Profile</item>
@@ -213,5 +215,15 @@
 	    disputes arising out of or relating to the use of this Bindaas Team Application. Use of this 
 	    Bindaas Team Application is unauthorized in any jurisdiction that does not give effect to all 
 	    provisions of these terms and conditions, including without limitation this paragraph.</string>
+
+    <!-- This is a for Banner unit app id -->
+    <string name="ad_id">  ca-app-pub-2555724076385576/9206303246</string>
+    <string name="title_activity_mail">MailActivity</string>
+    
+    <!-- For Email Activity -->
+    
+    <string name="subject">Subject:</string>
+     <string name="send">Send</string>
+    
 
 </resources>
