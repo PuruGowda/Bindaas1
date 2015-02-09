@@ -65,5 +65,153 @@
     <string name="searchFriendBtn">search</string>
     <string name="no">No</string>
     <string name="yes">Yes</string>
+    <string name="terms">1.Terms of Use:</string>
+    
+    
+    <!-- Terms and Codition titles -->
+    <string name="cTitle1">1.Terms of Use: </string>
+    <string name="cTitle2">2.REGISTRATION:  </string>
+    <string name="cTitle3">3.DELAYS IN SERVICES: </string>
+    <string name="cTitle4">4.Limitation of liability:</string>
+    <string name="cTitle5">5.EQUIPMENT AND OPERATION :</string>
+    <string name="cTitle6">6.INFORMATION DISCLAIMER:</string>
+    <string name="cTitle7">7.Advertising Material: </string>
+    <string name="cTitle8">8.INDEMNIFICATION: </string>
+    <string name="cTitle9">9.CONFLICTING TERMS: </string>
+    <string name="cTitle10">10.ENTIRE AGREEMENT: </string>
+    <string name="cTitle11">11.International Use: </string>
+    <string name="cTitle12">12.TERMINATION: </string>
+    <string name="cTitle13">13.JURISDICTION: </string>
+
+    <!-- Terms and Codition Details -->
+    <string name="cond1"> By installing and using our Bindaas Team Application you are agreeing to be 
+        bound by the following terms and conditions. We may change these terms and conditions at any time. 
+        Your continued use of our Bindaas Team Application means that you accept any new or modified 
+        terms and conditions that we come up with.
+		The term \'Bindaas Team Application \' is used through this entire Terms of Use document to refer to the application, its owners and the employees and associates of the owner		refer to the application, its owners and the employees and associates of the owner
+	</string>
+    <string name="cond2">By registering, you certify that all information you provide, now or in the future, 
+	    is accurate.
+		Bindaas Team Application reserves the right, in its sole discretion, to deny you access to this 
+		Bindaas Team Application or any portion thereof without notice for the following reasons (a) 
+		immediately by Bindaas Team Application for any unauthorized access or use by you (b) 
+		immediately by Bindaas Team Application if you assign or transfer (or attempt the same) any 
+		rights granted to you under this Agreement; (c) immediately, if you violate any of the other terms 
+		and conditions of this User Agreement</string>
+    <string name="cond3">Neither Bindaas Team Application (including its and their directors, employees, 
+        affiliates, agents, representatives or subcontractors) shall be liable for any loss or liability 
+        resulting, directly or indirectly, from delays or interruptions due to electronic or mechanical 
+        equipment failures, telephone interconnect problems, defects, weather, strikes, walkouts, fire, acts 
+        of God, riots, armed conflicts, acts of war, or other like causes. Bindaas Team Application 
+        shall have no responsibility to provide you access to Bindaas Team Application while 
+        interruption of Bindaas Team Application is due to any such cause shall continue.</string>
+    <string name="cond4"> You agree that the Bindaas Team Application (including its and their directors, 
+        employees, affiliates, agents, representatives or subcontractors) shall not be liable for any direct, 
+        special, incidental, indirect or consequential damages of any kind in connection with this agreement 
+        or your use of the application, even if company has been informed in advance of the possibility of such
+        damages.</string>
+    <string name="cond5">You shall provide and maintain all telephone/internet and other equipment necessary 
+        to use Bindaas Team Application, and the costs of any such equipment and/or telephone/internet 
+        connections or use, including any applicable taxes, shall be borne solely by you. You are responsible 
+        for operating your own equipment used to access Bindaas Team Application.</string>
+    <string name="cond6">You acknowledge that the information provided through Bindaas Team Application 
+        is compiled from sources, which are beyond the control of Bindaas Team Application Though such 
+        information is recognized by the parties to be generally reliable, the parties acknowledge that 
+        inaccuracies may occur and Bindaas Team Application does not warrant the accuracy or suitability 
+        of the information. For this reason, as well as the possibility of human and mechanical errors and 
+        other factors, YOU ACKNOWLEDGE THAT Bindaas Team Application IS PROVIDED TO YOU ON AN "AS IS, 
+        WITH ALL FAULTS" BASIS. Bindaas Team Application EXPRESSLY DISCLAIMS ANY AND ALL WARRANTIES, 
+        WHETHER EXPRESS, ORAL, IMPLIED, STATUTORY OR OTHERWISE, OF ANY KIND TO THE USERS AND/OR ANY THIRD PARTY, 
+        INCLUDING ANY IMPLIED WARRANTIES OF ACCURACY, TIMELINESS, COMPLETENESS, MERCHANTABILITY AND FITNESS 
+        FOR A PARTICULAR PURPOSE, AS WELL AS ANY WARRANTIES ARISING BY VIRTUE OF CUSTOM OF TRADE OR COURSE OF 
+        DEALING AND ANY IMPLIED WARRANTIES OF TITLE OR NON-INFRINGEMENT. IN ADDITION, Bindaas Team 
+        Application DOES NOT REPRESENT OR WARRANT THAT IT WILL MEET YOUR REQUIREMENTS OR IS SUITABLE FOR 
+        YOUR NEEDS.
+		Under this User Agreement, you assume all risk of errors and/or omissions in Bindaas Team 
+		Application, including the transmission or translation of information. You assume full responsibility 
+		for implementing sufficient procedures and checks to satisfy your requirements for the accuracy and 
+		suitability of Bindaas Team Application, including the information, and for maintaining any 
+		means, which you may require for the reconstruction of lost data or subsequent manipulations or 
+		analyses of the information under the User Agreement.
+		YOU AGREE THAT Bindaas Team Application (INCLUDING ITS AND THEIR OFFICERS, DIRECTORS, EMPLOYEES, 
+		AFFILIATES, GROUP COMPANIES AGENTS, REPRESENTATIVES OR SUBCONTRACTORS) SHALL NOT IN ANY EVENT BE 
+		LIABLE FOR ANY SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO 
+		USE Bindaas Team Application FOR ANY PURPOSE WHATSOEVER. Bindaas Team Application AND IT\'S 
+		AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES AND AGENTS SHALL HAVE NO LIABILITY IN TORT, CONTRACT, OR 
+		OTHERWISE TO USER AND/OR ANY THIRD PARTY.</string>
+    <string name="cond7">Some part of the Bindaas Team Application may contain advertising information 
+        or promotional material or other material submitted to Bindaas Team Application by third parties. 
+        Responsibility for ensuring that the material submitted for inclusion on Bindaas Team 
+        Application complies with applicable law is exclusively on the party providing the information 
+        material. Your correspondence or business dealings with, or participation in promotions of 
+        advertisers or including payment and delivery of related goods or services, and any other terms, 
+        conditions, warranties or representations associated with such dealings, are solely between you and 
+        such advertiser. Bindaas Team Application will not be responsible or liable for any claim, 
+        error, omission, inaccuracy in advertising material or any loss or damage of any sort incurred as 
+        the result of any such dealings or as a result of the presence of such advertisers on the application. 
+        Bindaas Team Application reserves the right to omit, suspend or change the position of any 
+        advertising material submitted for insertion.</string>
+    <string name="cond8"> YOU SHALL INDEMNIFY, DEFEND AND HOLD HARMLESS Bindaas Team Application 
+        (INCLUDING ITS AND THEIR OFFICERS, DIRECTORS, EMPLOYEES, AFFILIATES, GROUP COMPANIES, AGENTS, 
+        REPRESENTATIVES OR SUBCONTRACTORS) FROM ANY AND ALL CLAIMS AND LOSSES IMPOSED ON, INCURRED BY OR 
+        ASSERTED AS A RESULT OF OR RELATED TO: (a) your access and use of Bindaas Team Application 
+        (b) any non-compliance by user with the terms and conditions hereof; or (c) any third party actions 
+        related to users receipt and use of the information, whether authorized or unauthorized. Any clause 
+        declared invalid shall be deemed severable and not affect the validity or enforceability of the 
+        remainder. These terms may only be amended in a writing signed by Bindaas Team Application.
+</string>
+    <string name="cond9"> In no event will Gender Finder be liable for any direct, indirect, special, punitive, 
+        exemplary or consequential losses or damages of whatsoever kind arising out of your use or access to 
+        the Application, including loss of profit or the like whether or not in the contemplation of the 
+        parties, whether based on breach of contract, tort (including negligence), product liability or 
+        otherwise. 
+        Gender Finder is not liable to you for any damage or alteration to your equipment including but not 
+        limited to computer equipment, handheld device or mobile telephones as a result of the installation 
+        or use of the Application. 
+		Nothing in these Appterms shall exclude or limit Gender Finder’s liability for death or personal 
+		injury caused by negligence or for fraud or fraudulent misrepresentation or any other liability 
+		which cannot be excluded or limited under applicable law.</string>
+    <string name="cond10">This User Agreement constitutes the entire agreement between the parties, and no 
+        other agreement, written or oral, exists between you and Bindaas Team Application. By using 
+        the Information on Bindaas Team Application, you assume full responsibility for any and all 
+        gains and losses, financial, emotional or otherwise, experienced, suffered or incurred by you. 
+        Bindaas Team Application does not guarantee the accuracy, completeness or timeliness of, or 
+        otherwise endorse in any way, the views, opinions or recommendations expressed in the Information.
+		THE SERVICE IS PROVIDED "AS IS," WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING 
+		WITHOUT LIMITATION, ANY WARRANTY FOR INFORMATION, DATA, SERVICES, UNINTERRUPTED ACCESS, OR PRODUCTS 
+		PROVIDED THROUGH OR IN CONNECTION WITH THE SERVICE. SPECIFICALLY, Bindaas Team Application 
+		DISCLAIMS ANY AND ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO: (i) ANY WARRANTIES CONCERNING THE 
+		AVAILABILITY, ACCURACY, USEFULNESS, OR CONTENT OF INFORMATION, PRODUCTS OR SERVICES; AND (ii) ANY 
+		WARRANTIES OF TITLE, WARRANTY OF NON-INFRINGEMENT, WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A 
+		PARTICULAR PURPOSE. THIS DISCLAIMER OF LIABILITY APPLIES TO ANY DAMAGES OR INJURY CAUSED BY ANY 
+		FAILURE OF PERFORMANCE, ERROR, OMISSION, INTERRUPTION, DELETION, DEFECT, DELAY IN OPERATION OR 
+		TRANSMISSION, COMPUTER VIRUS, COMMUNICATION LINE FAILURE, THEFT OR DESTRUCTION OR UNAUTHORIZED 
+		ACCESS TO, ALTERATION OF, OR USE OF RECORD, WHETHER FOR BREACH OF CONTRACT, TORT, NEGLIGENCE, OR 
+		UNDER ANY OTHER CAUSE OF ACTION.
+		NEITHER Bindaas Team Application NOR ANY OF ITS EMPLOYEES, AGENTS, SUCCESSORS, ASSIGNS, 
+		AFFILIATES, GROUP COMPANIES OR CONTENT OR SERVICE PROVIDERS SHALL BE LIABLE TO YOU OR OTHER THIRD 
+		PARTY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF USE OF 
+		SERVICE OR INABILITY TO GAIN ACCESS TO OR USE THE SERVICE OR OUT OF ANY BREACH OF ANY WARRANTY. 
+		FURTHER, YOU AGREE AND UNDERSTAND THAT ALL SERVICES PROVIDED ARE NON-REFUNDABLE AND THAT YOU SHOULD 
+		CAREFULLY CONSIDER WHETHER OUR SERVICES ARE ABLE TO MEET YOUR NEEDS.</string>
+    <string name="cond11"> This Bindaas Team Application is controlled and operated from within India. 
+	    Those who chose to access the Bindaas Team Application from other locations do so at their own 
+	    risk and are responsible for compliance with applicable laws.</string>
+    <string name="cond12">This User Agreement and the license rights granted hereunder shall remain in full 
+	    force and effect unless terminated or canceled for any of the following reasons: (a) immediately by 
+	    Bindaas Team Application for any unauthorized access or use by you (b) immediately by Gender 
+	    Finder Play Application if you assign or transfer (or attempt the same) any rights granted to you 
+	    under this Agreement; (c) immediately, if you violate any of the other terms and conditions of 
+	    this User Agreement. Termination or cancellation of this Agreement shall not effect any right or 
+	    relief to which Bindaas Team Application may be entitled, at law or in equity. Upon termination 
+	    of this User Agreement, all rights granted to you will terminate and revert to Bindaas Team 
+	    Application. Except as set forth herein, regardless of the reason for cancellation or termination of
+	     this User Agreement, the fee charged if any for access to Bindaas Team Application is non-refundable 
+	     for any reason.</string>
+    <string name="cond13"> The terms of this agreement are exclusively based on and subject to Indian law. 
+	    You hereby consent to the exclusive jurisdiction and venue of courts in Bangalore, India in all 
+	    disputes arising out of or relating to the use of this Bindaas Team Application. Use of this 
+	    Bindaas Team Application is unauthorized in any jurisdiction that does not give effect to all 
+	    provisions of these terms and conditions, including without limitation this paragraph.</string>
 
 </resources>

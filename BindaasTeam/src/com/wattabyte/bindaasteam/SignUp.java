@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.ParseException;
@@ -23,23 +25,38 @@ public class SignUp extends ActionBarActivity {
 	String un , pwd , mail;
 	private static final String LOG = "MSG";
 	boolean emailVerified;
+	boolean checked = false;
 	final Context context = this;
+	TextView tv;
+	CheckBox cb;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_signup);
-		 
+		 tv = (TextView) findViewById(R.id.terms);
+		 cb = (CheckBox) findViewById(R.id.check);
 		userName = (EditText) findViewById(R.id.userName);
 		password = (EditText) findViewById(R.id.password);
 		email = (EditText) findViewById(R.id.email);
-		
+		 tv.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(SignUp.this,TermsAndConditions.class);
+				startActivity(i);
+			}
+		});
+		 
 		signup = (Button) findViewById(R.id.signup);
 		signup.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
+				
+				if(checked)
+				{
 				un = userName.getText().toString();
 				pwd = password.getText().toString();
 				mail = email.getText().toString();
@@ -97,11 +114,53 @@ public class SignUp extends ActionBarActivity {
 				}
 				else
 				{
-					Toast.makeText(SignUp.this, "Fill the mandatory fields", Toast.LENGTH_LONG).show();
+//					Toast.makeText(SignUp.this, "Fill the mandatory fields", Toast.LENGTH_LONG).show();
+					AlertDialog.Builder alert = new AlertDialog.Builder(context);
+					alert.setMessage("Fill the mandatory fields");
+					alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Intent intent  = new Intent(SignUp.this, SignUp.class);
+		     	            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		     	            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		     	            startActivity(intent);						
+						}
+					});
+						
+					AlertDialog alertDialog = alert.create();
+					alertDialog.show();
+				}
+			}
+				else
+				{
+					AlertDialog.Builder alert = new AlertDialog.Builder(context);
+					alert.setMessage("Accept terms and conditions to move further");
+					alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Intent intent  = new Intent(SignUp.this, SignUp.class);
+		     	            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		     	            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		     	            startActivity(intent);						
+						}
+					});
+						
+					AlertDialog alertDialog = alert.create();
+					alertDialog.show();
 				}
 				
 			}
 		});
 	}
+	
+	public void itemClicked(View v) {
+        //code to check if this checkbox is checked!
+        CheckBox checkBox = (CheckBox)v;
+        if(checkBox.isChecked()){
+        	checked = true;
+        }
+    }
 
 }

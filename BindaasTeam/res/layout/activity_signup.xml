@@ -68,6 +68,35 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp" >
+
+        <CheckBox
+            android:id="@+id/check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="80dp"
+            android:onClick="itemClicked" />
+
+        <TextView
+            android:id="@+id/terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/check"
+            android:layout_alignBottom="@+id/check"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/check"
+            android:text="Terms and conditions."
+            android:textColor="@color/lightblue" />
+
+    </RelativeLayout>
+
     <Button
         android:id="@+id/signup"
         android:layout_width="wrap_content"

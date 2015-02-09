@@ -6,6 +6,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -38,50 +40,70 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.activity_main);
-		userName = (EditText) findViewById(R.id.userName);
-		password = (EditText) findViewById(R.id.password);
+		if(isOnline()){
+			   // Start your AsyncTask
+			
+			setContentView(R.layout.activity_main);
+			userName = (EditText) findViewById(R.id.userName);
+			password = (EditText) findViewById(R.id.password);
 
-		login = (Button) findViewById(R.id.login);
-		signup = (Button) findViewById(R.id.signup);
+			login = (Button) findViewById(R.id.login);
+			signup = (Button) findViewById(R.id.signup);
 
-		login.setOnClickListener(new OnClickListener() {
+			login.setOnClickListener(new OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
+				@Override
+				public void onClick(View v) {
 
-				name = userName.getText().toString();
-				pwd = password.getText().toString();
-				if (name != null && !name.equals("") && pwd != null
-						&& !pwd.equals("")) {
+					name = userName.getText().toString();
+					pwd = password.getText().toString();
+					if (name != null && !name.equals("") && pwd != null
+							&& !pwd.equals("")) {
 
-					ParseUser.logInInBackground(name.trim(), pwd.trim(), new LogInCallback() {
-						public void done(ParseUser user, ParseException e) {
-							if (user != null) {
-								Intent in = new Intent(MainActivity.this,
-										NavigationDrawerActivity.class);
-								startActivity(in);
-							} else {
-								// Signup failed. Look at the ParseException to
-								// see what happened.
-								ParseQuery<ParseObject> query = ParseQuery.getQuery("User");
-								query.whereEqualTo("username", name);
-								query.findInBackground(new FindCallback<ParseObject>() {
-									
-									@Override
-									public void done(List<ParseObject> name, ParseException e) {
-										if(e == null)
-										{
-											flag = true;
+						ParseUser.logInInBackground(name.trim(), pwd.trim(), new LogInCallback() {
+							public void done(ParseUser user, ParseException e) {
+								if (user != null) {
+									Intent in = new Intent(MainActivity.this,
+											NavigationDrawerActivity.class);
+									startActivity(in);
+								} else {
+									// Signup failed. Look at the ParseException to
+									// see what happened.
+									ParseQuery<ParseObject> query = ParseQuery.getQuery("User");
+									query.whereEqualTo("username", name);
+									query.findInBackground(new FindCallback<ParseObject>() {
+										
+										@Override
+										public void done(List<ParseObject> name, ParseException e) {
+											if(e == null)
+											{
+												flag = true;
+											}
+											else
+											{
+												Log.i("MSG", ""+e);
+											}
 										}
-										else
-										{
-											Log.i("MSG", ""+e);
-										}
+									});
+									if(flag == false)
+									{
+										AlertDialog.Builder alert = new AlertDialog.Builder(
+												context);
+										alert.setMessage("Invalid user name and password");
+										alert.setPositiveButton("Ok",
+												new DialogInterface.OnClickListener() {
+													@Override
+													public void onClick(
+															DialogInterface dialog,
+															int which) {
+
+													}
+												});
+										AlertDialog alertDialog = alert.create();
+										alertDialog.show();
 									}
-								});
-								if(flag == false)
-								{
+									else
+									{
 									AlertDialog.Builder alert = new AlertDialog.Builder(
 											context);
 									alert.setMessage("Invalid user name and password");
@@ -96,47 +118,58 @@ public class MainActivity extends ActionBarActivity {
 											});
 									AlertDialog alertDialog = alert.create();
 									alertDialog.show();
-								}
-								else
-								{
-								AlertDialog.Builder alert = new AlertDialog.Builder(
-										context);
-								alert.setMessage("Invalid user name and password");
-								alert.setPositiveButton("Ok",
-										new DialogInterface.OnClickListener() {
-											@Override
-											public void onClick(
-													DialogInterface dialog,
-													int which) {
-
-											}
-										});
-								AlertDialog alertDialog = alert.create();
-								alertDialog.show();
+									}
 								}
 							}
-						}
-					});
-				} else {
-					Toast.makeText(MainActivity.this, "Fill the fields",
-							Toast.LENGTH_LONG).show();
+						});
+					} else {
+						Toast.makeText(MainActivity.this, "Fill the fields",
+								Toast.LENGTH_LONG).show();
+					}
+
 				}
+			});
 
+			signup.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View v) {
+					Intent i = new Intent(MainActivity.this, SignUp.class);
+					startActivity(i);
+
+				}
+			});
+			} else{
+			  // Show internet not available alert
+				
+				AlertDialog.Builder alert = new AlertDialog.Builder(context);
+				alert.setMessage("Sorry!! Requires network connection");
+				alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+												
+					}
+				});
+					
+				AlertDialog alertDialog = alert.create();
+				alertDialog.show();
 			}
-		});
-
-		signup.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(MainActivity.this, SignUp.class);
-				startActivity(i);
-
-			}
-		});
+		
 
 	}
 
+	public boolean isOnline() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()
+                && cm.getActiveNetworkInfo().isAvailable()
+                && cm.getActiveNetworkInfo().isConnected()) {
+            return true;
+        }
+        return false;
+    }
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
