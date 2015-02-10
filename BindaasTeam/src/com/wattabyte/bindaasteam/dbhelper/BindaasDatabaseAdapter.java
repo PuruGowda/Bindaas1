@@ -9,29 +9,30 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class VinayDatabaseAdapter  {
+public class BindaasDatabaseAdapter  {
 	
-	VinayHelper helper;
+	BindaasHelper helper;
 	
-	public VinayDatabaseAdapter(Context context ) {
-		helper =new  VinayHelper(context);
+	public BindaasDatabaseAdapter(Context context ) {
+		helper =new  BindaasHelper(context);
 	}
 	
-	public long insertData( String name ,String password){
+	public long insertData( String teamName ,String leagueName ){
 		
 		SQLiteDatabase db =  helper.getWritableDatabase();
 		ContentValues contentValues = new ContentValues();
-		contentValues.put(VinayHelper.USER_NAME, name);
-		contentValues.put(VinayHelper.PASSWORD, password);
-		long id = db.insert(VinayHelper.TABLE_NAME, null, contentValues);
+//		String points = "";
+		contentValues.put(BindaasHelper.TEAM_NAME, teamName);
+		contentValues.put(BindaasHelper.LEAGUE_NAME, leagueName);
+		long id = db.insert(BindaasHelper.TABLE_NAME, null, contentValues);
 		return id;
 	}
 	
 	public String getAllData(){
 		SQLiteDatabase db = helper.getWritableDatabase();
 		//select_id, Name , Password From VinayTable;
-		String[] columns = {VinayHelper.UID , VinayHelper.USER_NAME, VinayHelper.PASSWORD};
-		Cursor cursor =  db.query(VinayHelper.TABLE_NAME, columns, null, null, null, null, null);
+		String[] columns = {BindaasHelper.UID , BindaasHelper.TEAM_NAME, BindaasHelper.LEAGUE_NAME};
+		Cursor cursor =  db.query(BindaasHelper.TABLE_NAME, columns, null, null, null, null, null);
 		StringBuffer buffer = new StringBuffer();
 		while (cursor.moveToNext()) {
 			 int cid = cursor.getInt(0);
@@ -46,12 +47,12 @@ public class VinayDatabaseAdapter  {
 		
 		SQLiteDatabase db = helper.getWritableDatabase();
 		//select_id, Name , Password From VinayTable;
-		String[] columns = { VinayHelper.USER_NAME, VinayHelper.PASSWORD};
-		Cursor cursor =  db.query(VinayHelper.TABLE_NAME, columns, VinayHelper.USER_NAME + " ='" + name +"'", null, null, null, null);
+		String[] columns = { BindaasHelper.TEAM_NAME, BindaasHelper.LEAGUE_NAME};
+		Cursor cursor =  db.query(BindaasHelper.TABLE_NAME, columns, BindaasHelper.TEAM_NAME + " ='" + name +"'", null, null, null, null);
 		StringBuffer buffer = new StringBuffer();
 		while (cursor.moveToNext()) {
-			int index1	= cursor.getColumnIndex(VinayHelper.USER_NAME);
-			int index2	= cursor.getColumnIndex(VinayHelper.PASSWORD);
+			int index1	= cursor.getColumnIndex(BindaasHelper.TEAM_NAME);
+			int index2	= cursor.getColumnIndex(BindaasHelper.LEAGUE_NAME);
 			 String  personName = cursor.getString(index1);
 			 String password = cursor.getString(index2);
 			 buffer.append( personName + " " + password+"\n");
@@ -60,22 +61,24 @@ public class VinayDatabaseAdapter  {
 		return buffer.toString();
 	}
 
-	static class VinayHelper extends SQLiteOpenHelper{
-		private static final String DATABASE_NAME = "vinaydatabase";
-		private static final String TABLE_NAME = "VINAYTABLE";
-		private static final int DATABASE_VERSION = 11;
+	static class BindaasHelper extends SQLiteOpenHelper{
+		private static final String DATABASE_NAME = "TeamDatabase";
+		private static final String TABLE_NAME = "TeamTable";
+		private static final int DATABASE_VERSION = 1;
 		private static final String UID = "_id";
-		private static final String USER_NAME = "UserName";
-		private static final String PASSWORD = "Password";
+		private static final String TEAM_NAME = "TeamName";
+		private static final String LEAGUE_NAME = "GroupName";
+		private static final String POINTS = "Points";
+//		private static final String MEMBERS = "Members";
 		
 		private Context context;
 		private static final String CREATE = " CREATE TABLE " + TABLE_NAME 
 				+ " ("+ UID + " INTEGER PRIMARY KEY AUTOINCREMENT, " 
-				+ USER_NAME + " VARCHAR(255), " + PASSWORD + " VARCHAR(255) );";
+				+ TEAM_NAME + " VARCHAR(255), " + LEAGUE_NAME + " VARCHAR(255),"+ POINTS+" VARCHAR(255) );";
 		private static final String DROP_TABLE = "DROP TABLE  IF EXISTS "
 				+ TABLE_NAME;
 
-		public VinayHelper(Context context) {
+		public BindaasHelper(Context context) {
 			super(context, DATABASE_NAME, null, DATABASE_VERSION);
 			this.context = context;
 			Message.message(context, "Constructor Called");

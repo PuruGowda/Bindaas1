@@ -1,259 +1,278 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/blue" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="10dp"
         android:orientation="vertical" >
+
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-        
-        <TextView
-        android:id="@+id/terms"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cTitle1"
-        android:textStyle="bold" />
-        <TextView
-        android:id="@+id/termsdescription"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond1"/>
-        
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/terms"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle1"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/termsdescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond1"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/reg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle2"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/regdescription"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond2"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle3"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond3"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle4"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond4"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle5"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond5"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle6"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond6"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle7"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond7"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle8"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond8"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle9"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond9"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle10"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond10"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle11"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond11"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle12"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond12"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cTitle13"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/cond13"
+                android:textColor="@color/white" />
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-        
-        
-        
-        <TextView
-        android:id="@+id/reg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle2" />
-        <TextView
-        android:id="@+id/regdescription"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond2" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle3" />
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond3" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle4" />
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond4" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle5" />
-        <TextView
-       
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond5" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle6" />
-        <TextView
-       
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond6" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle7" />
-        <TextView
-       
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond7" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle8" />
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond8" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textStyle="bold"
-        android:text="@string/cTitle9" />
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond9" />
-        
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cTitle10" />
-        <TextView
-       
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond10" />
-        
-    </LinearLayout>
-     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cTitle11" />
-        <TextView
-       
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond11" />
-        
-    </LinearLayout>
-     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical" >
-         
-        <TextView
-        android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cTitle12" />
-        <TextView
-        
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond12" />
-        
-    </LinearLayout>
-     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="vertical" >
-         
-        <TextView
-       android:textStyle="bold"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cTitle13" />
-        <TextView
-       
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/cond13" />
-        
-    </LinearLayout>
-</LinearLayout>
-    
 
 </ScrollView>

@@ -1,9 +1,10 @@
 package com.wattabyte.bindaasteam.navigationdrawer;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -33,6 +34,12 @@ import com.wattabyte.bindaasteam.R;
 
 public class NavigationDrawerActivity extends ActionBarActivity implements
 		OnItemClickListener {
+	
+	public static final String REMEBER = "Remeber";
+	public static final String LOGIN_CREDENTIALS = "Login Credentials";
+	
+	SharedPreferences sharedPreference;
+	SharedPreferences.Editor editor;
 
 	public static NavigationDrawerActivity instance;
 	public static String fragmentName = "ProfileFragment()";
@@ -77,6 +84,7 @@ public class NavigationDrawerActivity extends ActionBarActivity implements
 
 						if (userName.equals(name.getString(NAME))) {
 							flag = false;
+							break;
 						} else {
 							flag = true;
 						}
@@ -90,6 +98,7 @@ public class NavigationDrawerActivity extends ActionBarActivity implements
 
 						if (teamName.equals(name.getString(NAME))) {
 							flag = false;
+							break;
 						} else {
 							flag = true;
 						}
@@ -103,6 +112,7 @@ public class NavigationDrawerActivity extends ActionBarActivity implements
 
 						if (groupName.equals(name.getString(NAME))) {
 							flag = false;
+							break;
 						} else {
 							flag = true;
 						}
@@ -191,6 +201,12 @@ public class NavigationDrawerActivity extends ActionBarActivity implements
 				ParseUser.logOut();
 				Intent intent = new Intent(getApplicationContext(),
 						MainActivity.class);
+				sharedPreference = getSharedPreferences(LOGIN_CREDENTIALS, Context.MODE_PRIVATE);
+				if (sharedPreference != null ) {
+					editor = sharedPreference.edit();
+					editor.putBoolean(REMEBER, false);
+					editor.commit();
+				}
 				intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 						| Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(intent);

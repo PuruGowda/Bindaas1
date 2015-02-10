@@ -6,14 +6,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.wattabyte.pushnotification.ReplyActivity" >
+    tools:context="com.wattabyte.pushnotification.ReplyActivity" 
+    android:background="@color/blue">
 
     <TextView
         android:id="@+id/requestName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="@string/hello_world" />
+        android:text="@string/hello_world"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/requestMessage"
@@ -21,7 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/requestName"
         android:layout_centerHorizontal="true"
-        android:text="@string/hello_world" />
+        android:text="@string/hello_world" 
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/accept"
@@ -30,7 +33,9 @@
         android:layout_below="@id/requestMessage"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
-        android:text="@string/accept" />
+        android:text="@string/accept" 
+        android:textColor="@color/black"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/reject"
@@ -40,6 +45,8 @@
         android:layout_marginRight="20dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="30dp"
-        android:text="@string/reject" />
+        android:text="@string/reject"
+         android:textColor="@color/black"
+        android:background="@color/white" />
 
 </RelativeLayout>

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-   tools:context="com.wattabyte.bindaasteam.teammanagement.TeamListViewActivity">
+   tools:context="com.wattabyte.bindaasteam.teammanagement.TeamListViewActivity"
+   android:background="@color/blue">
 
     <ListView
         android:id="@+id/listView"

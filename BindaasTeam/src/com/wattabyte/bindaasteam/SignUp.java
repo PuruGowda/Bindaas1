@@ -1,5 +1,7 @@
 package com.wattabyte.bindaasteam;
 
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -15,9 +17,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+import com.wattabyte.bindaasteam.util.CheckName;
+import com.wattabyte.bindaasteam.util.Message;
 
 public class SignUp extends ActionBarActivity {
 	Button signup;
@@ -29,6 +36,8 @@ public class SignUp extends ActionBarActivity {
 	TextView tv;
 	CheckBox cb;
 	boolean checked = false;
+	public static final String NAME = "Name";
+	public static final String NAMES = "Names";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +71,10 @@ public class SignUp extends ActionBarActivity {
 				pwd = password.getText().toString();
 				mail = email.getText().toString();
 				if(un != null  && !un.equals("") && pwd != null  && !pwd.equals("") && mail != null  && !mail.equals("")){
-					
+				if(Character.isDigit(un.charAt(0))){
+					Message.message(SignUp.this, "First letter should be alphabet");
+				}	
+				else{
 					ParseUser user = new ParseUser();
 					user.setUsername(un.trim());
 					user.setPassword(pwd.trim());
@@ -72,6 +84,27 @@ public class SignUp extends ActionBarActivity {
 						  public void done(ParseException e) {
 						    if (e == null) {
 						    	// Hooray! Let them use the app now.
+								ParseQuery<ParseObject> query = ParseQuery.getQuery(NAMES);
+								query.whereExists(NAME);
+								query.setLimit(2000);
+								query.findInBackground(new FindCallback<ParseObject>() {
+
+									@Override
+									public void done(List<ParseObject> names, ParseException e) {
+										if (e == null) {
+										
+											
+											String teamName = "Team" + un;
+											String groupName = "Group" + un;
+												
+											
+											
+										} else {
+
+										}
+
+									}
+								});
 						    	Log.i(LOG,"Welcome "+ un);
 						    	Toast.makeText(SignUp.this, un + "   "+ pwd+"   "+ mail, Toast.LENGTH_LONG).show();
 						    	AlertDialog.Builder alert = new AlertDialog.Builder(context);
@@ -88,6 +121,7 @@ public class SignUp extends ActionBarActivity {
 									
 								AlertDialog alertDialog = alert.create();
 								alertDialog.show();
+								
 						    } else {
 						      // Sign up didn't succeed. Look at the ParseException
 						      // to figure out what went wrong
@@ -113,6 +147,7 @@ public class SignUp extends ActionBarActivity {
 						});
 					
 				}
+				}
 				else
 				{
 //					Toast.makeText(SignUp.this, "Fill the mandatory fields", Toast.LENGTH_LONG).show();
@@ -132,7 +167,12 @@ public class SignUp extends ActionBarActivity {
 					AlertDialog alertDialog = alert.create();
 					alertDialog.show();
 				}
-				}		
+//				}else {
+//					
+//					Message.message(SignUp.this, "Enter the name starting with character and enter alpha numeric character");
+//				}
+				}
+						
 				
 				else
 				{

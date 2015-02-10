@@ -19,6 +19,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.wattabyte.bindaasteam.R;
+import com.wattabyte.bindaasteam.dbhelper.BindaasDatabaseAdapter;
 
 public class SelectLeague extends ActionBarActivity {
 	
@@ -34,6 +35,7 @@ public class SelectLeague extends ActionBarActivity {
 	public ArrayList<String> leagueArray;
 	 static String teamName;
 	 ListView leagueListView;
+	 BindaasDatabaseAdapter helper;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		

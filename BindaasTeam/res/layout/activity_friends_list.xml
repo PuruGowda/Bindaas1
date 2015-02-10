@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@color/blue">
     
     
     <RelativeLayout
@@ -17,6 +18,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:paddingLeft="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:text="@string/groupName" />
         
          <TextView
@@ -25,7 +28,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/groupName"
             android:layout_alignParentRight="true"
+            android:textStyle="bold"
             android:paddingRight="20dp"
+            android:textColor="@color/white"
             android:text="@string/leagueName" />
 
     </RelativeLayout>
@@ -49,7 +54,9 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_marginRight="24dp"
-            android:text="Done" />
+            android:text="Done" 
+            android:textColor="@color/black"
+            android:background="@color/white"/>
 
     </RelativeLayout>
 

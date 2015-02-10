@@ -53,7 +53,7 @@
         <item>How to play</item>
     </string-array>
 
-    <string name="add">+</string>
+    <string name="add">Create your group</string>
     <string name="team_name">Name Your Team</string>
     <string name="mailId">Email-ID</string>
     <string name="location">Location</string>

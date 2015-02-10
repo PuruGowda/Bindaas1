@@ -18,6 +18,8 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.wattabyte.bindaasteam.R;
+import com.wattabyte.bindaasteam.teammanagement.TeamName;
+import com.wattabyte.bindaasteam.util.Message;
 
 public class GroupNameActivity extends ActionBarActivity {
 
@@ -47,7 +49,9 @@ public class GroupNameActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 			
-			
+				if(Character.isDigit(groupName.getText().toString().charAt(0))){
+					Message.message(GroupNameActivity.this, "First Character Should be Alphabet");
+				}else{
 			ParseQuery<ParseObject> query = ParseQuery.getQuery(NAMES);
 			query.whereExists(NAME);
 			final ArrayList<String> nameArray = new ArrayList<String>();
@@ -104,6 +108,7 @@ public class GroupNameActivity extends ActionBarActivity {
 			});
 			
 
+			}
 			}
 		});
 

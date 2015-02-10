@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context="com.wattabyte.bindaasteam.MainActivity" >
+    tools:context="com.wattabyte.bindaasteam.MainActivity" 
+    android:background="@color/blue">
 
     <EditText
         android:id="@+id/userName"
@@ -12,7 +13,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:hint="@string/username"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
    
     <EditText
         android:id="@+id/password"
@@ -21,25 +24,31 @@
         android:layout_below="@id/userName"
         android:layout_marginTop="37dp"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword" 
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
 
     <Button
         android:id="@+id/login"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
+        android:layout_below="@+id/remember"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp"
-        android:text="@string/login" />
+        android:layout_marginTop="30dp"
+        android:text="@string/login" 
+        android:textColor="@color/black"
+        android:background="@color/white"/>
 
     <Button
         android:id="@+id/signup"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/login"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="35dp"
         android:layout_centerHorizontal="true"
-        android:text="@string/signup" />
+        android:text="@string/signup" 
+        android:textColor="@color/black"
+        android:background="@color/white"/>
     
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
@@ -57,6 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
-        android:text="@string/remember" />
+        android:text="@string/remember" 
+        android:textColor="@color/white"
+        android:layout_marginTop="25dp"/>
 
 </RelativeLayout>

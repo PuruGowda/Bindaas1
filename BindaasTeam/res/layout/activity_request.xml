@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.wattabyte.pushnotification.RequestActivity" >
+    tools:context="com.wattabyte.pushnotification.RequestActivity" 
+    android:background="@color/blue">
 
     <EditText
         android:id="@+id/userMessage"
@@ -14,14 +15,18 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:hint="@string/message"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
         android:inputType="textMultiLine" />
 
     <Button
         android:id="@+id/sendRequest"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/userMessage"
         android:layout_marginTop="20dp"
-        android:text="@string/request" />
+        android:text="@string/request" 
+         android:textColor="@color/black"
+         android:background="@color/white"/>
 
 </RelativeLayout>
